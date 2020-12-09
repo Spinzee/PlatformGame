@@ -69,6 +69,11 @@ public class GameplayController : Singleton<GameplayController>
         StartCoroutine(PlayerDied());
     }
 
+    public void PlayerFinished()
+    {
+        gameFinishedText.SetActive(true);
+    }
+
     IEnumerator PlayerDied()
     {
         yield return new WaitForSeconds(2f);

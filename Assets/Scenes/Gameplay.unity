@@ -499,7 +499,7 @@ GameObject:
   - component: {fileID: 374935408}
   m_Layer: 0
   m_Name: Finish
-  m_TagString: Untagged
+  m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -571,8 +571,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 374935407}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 57.80124, y: -7.383021, z: 1.2315289}
-  m_LocalScale: {x: 0.21068, y: 1, z: 1}
+  m_LocalPosition: {x: 56.68, y: -7.383021, z: 1.2315289}
+  m_LocalScale: {x: 0.4573652, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1273944788}
   m_RootOrder: 4
@@ -589,7 +589,7 @@ GameObject:
   - component: {fileID: 439745586}
   - component: {fileID: 439745585}
   m_Layer: 5
-  m_Name: Pickle
+  m_Name: Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1046,7 +1046,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a586622f2c9f3b649a22dfc18c98286d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickle: {fileID: 1452035697}
 --- !u!1001 &951667707
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2258,7 +2257,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 739abd1201ae3b1438ec53c54dba3da3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 739abd1201ae3b1438ec53c54dba3da3, type: 3}
       propertyPath: m_TagString

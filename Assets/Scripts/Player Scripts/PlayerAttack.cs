@@ -3,7 +3,13 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    [SerializeField] GameObject pickle;
+    private GameObject pickle;
+
+    private void Awake()
+    {
+        pickle = GameObject.Find("Pickle");
+        pickle.SetActive(false);
+    }
 
     // Update is called once per frame
     void Update()

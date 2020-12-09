@@ -80,5 +80,10 @@ public class PlayerWalk : MonoBehaviour
             anim.SetBool("Death_b", true);
             GameplayController.Instance.DecrementLife();
         }
+        else if (collision.gameObject.CompareTag("Finish"))
+        {
+            GameplayController.Instance.PlayerFinished();
+            Time.timeScale = 0f;
+        }
     }
 }

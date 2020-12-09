@@ -6,7 +6,7 @@ public class EnemyWalk : MonoBehaviour
 {
     private GameObject player;
 
-    [SerializeField] private float speed;
+    [SerializeField] private float speed = 5.0f;
 
     void Awake()
     {
