@@ -17,7 +17,7 @@ public class PlayerWalk : MonoBehaviour
     void Awake()
     {
         playerRB = GetComponent<Rigidbody>();
-        //anim = GetComponent<Animator>();
+        anim = gameObject.GetComponentInChildren<Animator>();
     }
 
     // TODO change to a fixed update
@@ -61,6 +61,9 @@ public class PlayerWalk : MonoBehaviour
         {
             playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isOnGround = false;
+
+            // TODO work out why the jump animation is making the player position go funky
+            //anim.SetBool("Jump_b", true);
         }
     }
 
@@ -70,6 +73,12 @@ public class PlayerWalk : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isOnGround = true;
+            //anim.SetBool("Jump_b", false);
+        }
+        else if (collision.gameObject.CompareTag("Enemy"))
+        {
+            anim.SetBool("Death_b", true);
+            GameplayController.Instance.DecrementLife();
         }
     }
 }

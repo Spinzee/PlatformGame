@@ -21,8 +21,6 @@ public class CameraFollow : MonoBehaviour
 
     private void FollowPlayer()
     {
-        //if (playerScore.isAlive)
-        //{
         Vector3 temp = transform.position;
         temp.x = player.transform.position.x + 11;
 
@@ -39,8 +37,6 @@ public class CameraFollow : MonoBehaviour
         temp.y = 5f;
 
         transform.position = temp;
-
-        //}
     }
 
 }

@@ -23,10 +23,5 @@ public class KillEnemy : MonoBehaviour
 
             GameplayController.Instance.IncrementScore();
         }
-        else if (collision.collider.CompareTag("Player"))
-        {
-            // anim player die
-            GameplayController.Instance.DecrementLife();
-        }
     }
 }
