@@ -194,7 +194,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 216427101}
-  - component: {fileID: 216427100}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -202,18 +201,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &216427100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 216427099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87446578168bf9443b8148842a0c76ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &216427101
 Transform:
   m_ObjectHideFlags: 0
@@ -496,6 +483,8 @@ GameObject:
   - component: {fileID: 965763064}
   - component: {fileID: 965763063}
   - component: {fileID: 965763062}
+  - component: {fileID: 965763066}
+  - component: {fileID: 965763067}
   m_Layer: 5
   m_Name: Options
   m_TagString: Untagged
@@ -607,7 +596,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 965763064}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 965763067}
+        m_MethodName: MoveOffScreen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &965763064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -643,6 +643,40 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 965763060}
   m_CullTransparentMesh: 0
+--- !u!95 &965763066
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965763060}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 18f46c5993b090c409a2d6f52518597e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &965763067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965763060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da5c276dd56b24e4e92320e1b3d4858b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveObjects:
+  - {fileID: 2029727268}
+  - {fileID: 1984090881}
 --- !u!1 &1037818622
 GameObject:
   m_ObjectHideFlags: 0
@@ -1451,6 +1485,7 @@ Animation:
   m_Animations:
   - {fileID: 7400000, guid: 0af2f1c2e913ba94e9964217843a02fe, type: 2}
   - {fileID: 7400000, guid: ce9e493970536a4418e1420e0f96568b, type: 2}
+  - {fileID: 7400000, guid: e7b727a984cdf6f459ac959f2a7e5ea9, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -1706,6 +1741,8 @@ GameObject:
   - component: {fileID: 1984090885}
   - component: {fileID: 1984090884}
   - component: {fileID: 1984090883}
+  - component: {fileID: 1984090887}
+  - component: {fileID: 1984090888}
   m_Layer: 5
   m_Name: LoadGame
   m_TagString: Untagged
@@ -1817,7 +1854,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1984090885}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1984090888}
+        m_MethodName: MoveOffScreen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1984090885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1853,6 +1901,40 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1984090881}
   m_CullTransparentMesh: 0
+--- !u!95 &1984090887
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984090881}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 18f46c5993b090c409a2d6f52518597e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1984090888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984090881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da5c276dd56b24e4e92320e1b3d4858b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveObjects:
+  - {fileID: 2029727268}
+  - {fileID: 965763060}
 --- !u!1 &2029727268
 GameObject:
   m_ObjectHideFlags: 0
@@ -1866,6 +1948,8 @@ GameObject:
   - component: {fileID: 2029727272}
   - component: {fileID: 2029727271}
   - component: {fileID: 2029727270}
+  - component: {fileID: 2029727274}
+  - component: {fileID: 2029727275}
   m_Layer: 5
   m_Name: NewGame
   m_TagString: Untagged
@@ -2001,6 +2085,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2029727275}
+        m_MethodName: MoveOffScreen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2029727272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2036,3 +2131,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2029727268}
   m_CullTransparentMesh: 0
+--- !u!95 &2029727274
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029727268}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 18f46c5993b090c409a2d6f52518597e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2029727275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029727268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da5c276dd56b24e4e92320e1b3d4858b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveObjects:
+  - {fileID: 1984090881}
+  - {fileID: 965763060}
