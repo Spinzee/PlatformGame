@@ -8,15 +8,23 @@ public class SpawnManager : MonoBehaviour
     public GameObject[] enemyPrefab;
     public GameObject player;
 
-    // Update is called once per frame
     void Update()
     {
         enemyCount = FindObjectsOfType<EnemyWalk>().Length;
 
         if (enemyCount == 0)
         {
-            Instantiate(GenerateRandomEnemy(), GenerateSpawnPosition(), GenerateRandomEnemy().transform.rotation);
+            var enemy = GenerateRandomEnemy();
+            Instantiate(enemy, GenerateSpawnPosition(), enemy.transform.rotation);
+            //enemy.GetComponent<AudioSource>().FadeIn(3);
+            //StartCoroutine(PlayWakeUpSound(enemy));
         }
+    }
+
+    IEnumerator PlayWakeUpSound(GameObject enemy)
+    {
+        yield return new WaitForSeconds(3);
+        enemy.GetComponent<AudioSource>().Play();
     }
 
     private Vector3 GenerateSpawnPosition()

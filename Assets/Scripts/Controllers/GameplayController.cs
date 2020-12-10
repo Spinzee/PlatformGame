@@ -14,12 +14,15 @@ public class GameplayController : Singleton<GameplayController>
     private int lifeScore;
     private GameObject gameFinishedText;
 
+    private AudioSource audio;
+
     protected override void Awake()
     {
         base.Awake();
 
         scoreText = GameObject.Find("ScoreText").GetComponent<TMP_Text>();
         lifeText = GameObject.Find("LifeText").GetComponent<TMP_Text>();
+        audio = GetComponent<AudioSource>();
         gameFinishedText = GameObject.Find("LevelFinished");
         gameFinishedText.SetActive(false);
     }
@@ -72,6 +75,7 @@ public class GameplayController : Singleton<GameplayController>
     public void PlayerFinished()
     {
         gameFinishedText.SetActive(true);
+        audio.FadeOut(5);
     }
 
     IEnumerator PlayerDied()

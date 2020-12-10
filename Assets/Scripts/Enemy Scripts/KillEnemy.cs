@@ -4,6 +4,19 @@ using UnityEngine;
 
 public class KillEnemy : MonoBehaviour
 {
+    [SerializeField] ParticleSystem smokeFX;
+    [SerializeField] AudioClip deathSound;
+
+    private Animator anim;
+
+    EnemyFX enemyFX;
+
+    private void Awake()
+    {
+        enemyFX = GameObject.Find("Enemy").GetComponent<EnemyFX>();
+        anim = GetComponent<Animator>();
+    }
+
     void Update()
     {
         if (transform.position.y < -10)
@@ -16,12 +29,10 @@ public class KillEnemy : MonoBehaviour
     {
         if (collision.collider.CompareTag("Pickle"))
         {
-            var particle = GameObject.Find("Particles").GetComponent<PlayParticles>();
-            particle.PlayParticle(gameObject.transform.position);
-
-            Destroy(gameObject);
-
+            enemyFX.PlayDeathSound(deathSound);
             GameplayController.Instance.IncrementScore();
+            enemyFX.PlayParticle(gameObject.transform.position, smokeFX);
+            Destroy(gameObject);
         }
     }
 }
