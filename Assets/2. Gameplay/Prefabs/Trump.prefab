@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 494bdae1151ac9745a58411e002f50a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smokeFX: {fileID: 19800000, guid: 5b6c2f68addb63847b151f0d41a9d3b1, type: 3}
+  smokeFX: {fileID: 19800000, guid: ab1112643ee572748b01dede71158272, type: 3}
   deathSound: {fileID: 8300000, guid: b02c809c399565c40a06f5cba2576d24, type: 3}
 --- !u!82 &82334753202230120
 AudioSource:
@@ -135,9 +135,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4712e6c1ff2f84148a0a0a1017824c2f, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.81
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0

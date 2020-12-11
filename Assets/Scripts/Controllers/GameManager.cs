@@ -10,8 +10,19 @@ public class GameManager : Singleton<GameManager>
 
     public bool playerDiedGameRestarted;
 
+    public AudioSource audio;
+    public AudioClip StartGameClip;
+    public AudioClip EndGameClip;
+    public AudioClip GameMusic;
+
     void Start()
     {
+        audio = GetComponent<AudioSource>();
         DontDestroyOnLoad(gameObject);
+    }
+
+    public void PlayAudio(AudioClip clip)
+    {
+        audio.PlayOneShot(clip);
     }
 }

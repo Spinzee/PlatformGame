@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
@@ -12,19 +10,13 @@ public class SpawnManager : MonoBehaviour
     {
         enemyCount = FindObjectsOfType<EnemyWalk>().Length;
 
-        if (enemyCount == 0)
+        if (enemyCount == 0 && GameplayController.Instance.GameIsActive)
         {
             var enemy = GenerateRandomEnemy();
             Instantiate(enemy, GenerateSpawnPosition(), enemy.transform.rotation);
             //enemy.GetComponent<AudioSource>().FadeIn(3);
             //StartCoroutine(PlayWakeUpSound(enemy));
         }
-    }
-
-    IEnumerator PlayWakeUpSound(GameObject enemy)
-    {
-        yield return new WaitForSeconds(3);
-        enemy.GetComponent<AudioSource>().Play();
     }
 
     private Vector3 GenerateSpawnPosition()

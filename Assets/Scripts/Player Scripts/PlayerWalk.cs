@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerWalk : MonoBehaviour
 {
+    [SerializeField] AudioClip DeathSound;
+
     private readonly float speed = 10f;
     private readonly float jumpForce = 130f;
 
@@ -13,18 +15,23 @@ public class PlayerWalk : MonoBehaviour
     private bool isOnGround = true;
     private float horizontalInput;
     private bool isFacingRight = true;
+    private AudioSource audio;
 
     void Awake()
     {
         playerRB = GetComponent<Rigidbody>();
         anim = gameObject.GetComponentInChildren<Animator>();
+        audio = gameObject.GetComponentInChildren<AudioSource>();
     }
 
     // TODO change to a fixed update
     void Update()
     {
-        Walk();
-        Jump();
+        if (GameplayController.Instance.GameIsActive)
+        {
+            Walk();
+            Jump();
+        }
     }
 
     private void Walk()
@@ -77,13 +84,15 @@ public class PlayerWalk : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Enemy"))
         {
+            audio.PlayOneShot(DeathSound, 0.5f);
             anim.SetBool("Death_b", true);
             GameplayController.Instance.DecrementLife();
         }
         else if (collision.gameObject.CompareTag("Finish"))
         {
+            anim.SetFloat("Speed_f", 0f);
+            anim.SetInteger("WeaponType_int", 10);
             GameplayController.Instance.PlayerFinished();
-            Time.timeScale = 0f;
         }
     }
 }

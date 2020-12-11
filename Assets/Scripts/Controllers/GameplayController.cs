@@ -1,12 +1,12 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class GameplayController : Singleton<GameplayController>
 {
+    public bool GameIsActive { get; set; }
+
     private TMP_Text scoreText;
     private TMP_Text lifeText;
 
@@ -14,17 +14,15 @@ public class GameplayController : Singleton<GameplayController>
     private int lifeScore;
     private GameObject gameFinishedText;
 
-    private AudioSource audio;
-
     protected override void Awake()
     {
         base.Awake();
 
         scoreText = GameObject.Find("ScoreText").GetComponent<TMP_Text>();
         lifeText = GameObject.Find("LifeText").GetComponent<TMP_Text>();
-        audio = GetComponent<AudioSource>();
         gameFinishedText = GameObject.Find("LevelFinished");
         gameFinishedText.SetActive(false);
+        GameIsActive = true;
     }
 
     void OnEnable()
@@ -74,8 +72,9 @@ public class GameplayController : Singleton<GameplayController>
 
     public void PlayerFinished()
     {
+        GameIsActive = false;
         gameFinishedText.SetActive(true);
-        audio.FadeOut(5);
+        GameManager.Instance.audio.Fade(5, 0);
     }
 
     IEnumerator PlayerDied()
@@ -84,6 +83,7 @@ public class GameplayController : Singleton<GameplayController>
 
         if (lifeScore < 0)
         {
+            GameManager.Instance.audio.Stop();
             SceneManager.LoadScene("MainMenu");
         }
         else

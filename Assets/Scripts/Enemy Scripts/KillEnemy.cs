@@ -7,14 +7,11 @@ public class KillEnemy : MonoBehaviour
     [SerializeField] ParticleSystem smokeFX;
     [SerializeField] AudioClip deathSound;
 
-    private Animator anim;
-
     EnemyFX enemyFX;
 
     private void Awake()
     {
         enemyFX = GameObject.Find("Enemy").GetComponent<EnemyFX>();
-        anim = GetComponent<Animator>();
     }
 
     void Update()
