@@ -12,4 +12,12 @@ public class GoOffScreen : MonoBehaviour
             obj.GetComponent<Animator>().SetBool("onScreen", false);
         }
     }
+
+    public void MoveOnScreen()
+    {
+        foreach (GameObject obj in MoveObjects)
+        {
+            obj.GetComponent<Animator>().SetBool("onScreen", true);
+        }
+    }
 }

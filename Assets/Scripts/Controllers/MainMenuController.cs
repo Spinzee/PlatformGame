@@ -3,6 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
+    [SerializeField] GameObject options;
+    [SerializeField] GameObject optionsMenu;
+        
+    private float originalVolume;
+
     public void StartGame()
     {
         GameManager.Instance.playerDiedGameRestarted = false;
@@ -15,5 +20,30 @@ public class MainMenuController : MonoBehaviour
     {
         GameManager.Instance.PlayAudio(GameManager.Instance.GameMusic);
         SceneManager.LoadScene("Gameplay");
+    }
+
+    public void DisplayOptions()
+    {
+        originalVolume = GetComponent<AudioSource>().volume;
+        Invoke("DelayOptions", 2);
+    }
+
+    public void DelayOptions()
+    {
+        options.SetActive(false);
+        optionsMenu.SetActive(true);
+    }
+
+    public void SaveOptions()
+    {
+        options.SetActive(true);
+        optionsMenu.SetActive(false);
+    }
+
+    public void CancelOptions()
+    {
+        GetComponent<AudioSource>().volume = originalVolume;
+        options.SetActive(true);
+        optionsMenu.SetActive(false);
     }
 }
