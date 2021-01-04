@@ -25,4 +25,9 @@ public class GameManager : Singleton<GameManager>
     {
         audio.PlayOneShot(clip);
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }

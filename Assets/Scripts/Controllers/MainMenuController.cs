@@ -5,6 +5,8 @@ public class MainMenuController : MonoBehaviour
 {
     [SerializeField] GameObject options;
     [SerializeField] GameObject optionsMenu;
+    [SerializeField] GameObject optionsCursor;
+    [SerializeField] GameObject pallet;
         
     private float originalVolume;
 
@@ -38,6 +40,8 @@ public class MainMenuController : MonoBehaviour
     {
         options.SetActive(true);
         optionsMenu.SetActive(false);
+        optionsCursor.SetActive(false);
+        pallet.SetActive(false);
     }
 
     public void CancelOptions()
@@ -45,5 +49,7 @@ public class MainMenuController : MonoBehaviour
         GetComponent<AudioSource>().volume = originalVolume;
         options.SetActive(true);
         optionsMenu.SetActive(false);
+        optionsCursor.SetActive(false);
+        pallet.SetActive(false);
     }
 }
